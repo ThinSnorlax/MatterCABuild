@@ -69,7 +69,7 @@ public class ProductAttestationIntermediateActivation {
 
     public static void main(String[] args) throws Exception {
         // Place your own Root CA ARN here.
-        String paaArn = "arn:aws:acm-pca:us-east-2:970290532830:certificate-authority/d98a0446-3dda-464d-bb08-5afc3abb2caa";
+        String paaArn = "替换你的PAA arn";
 
         // Define the endpoint region for your sample.
         String endpointRegion = "us-east-2";  // Substitute your region here, e.g. "ap-southeast-2"
