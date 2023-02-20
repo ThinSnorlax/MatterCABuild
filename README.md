@@ -37,3 +37,31 @@ Linux操作系统中，位于～/.aws/credentials, 方便起见，建议使用aw
    __b)__ 同理，我们需要替换region参数；  
    __c)__ 代码83行指定的1.3.6.1.4.1.37244.2.1，为VID，生产需要自行替换84行的值，VID由CSA提供;  
    __d)__ 代码84行指定的1.3.6.1.4.1.37244.2.1，为PID，生产需要自行替换87行的值;
+   
+4. IssueDeviceAttestationCertificate类用于发布DAC， 使用前，先使用openssl生成csr文件和证书密钥key文件，参考命令如下：
+```
+openssl ecparam -out elsenow-ecc.key -name prime256v1 -genkey
+openssl req -nodes -new -key elsenow-ecc.key \
+-out matter-registration.csr \
+cat iot-registration.csr
+```
+
+记录下cat matter-registration.csr输出的结果，并替换IssueDeviceAttestationCertificate类中代码第94行的strCSR参数的值，替换后如下
+
+替换代码76行region参数，endpointRegion
+替换代码91行PAI的ARN，PAI ARN在生成时会打印，也可以在ACM PCA控制台查询；
+执行代码后，会打印DAC的arn；
+
+* 等待证书发布完成：
+```
+aws acm-pca wait certificate-issued \
+--certificate-authority-arn [替换为您自己的PAI ARN] \
+--certificate-arn [替换为您自己的证书 ARN]
+```
+* 获取证书内容：
+```
+aws acm-pca get-certificate \
+--certificate-authority-arn [替换为您自己的PAI ARN] \
+--certificate-arn [替换为您自己的证书 ARN]
+```
+
