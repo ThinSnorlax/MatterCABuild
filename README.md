@@ -46,7 +46,7 @@ openssl req -nodes -new -key elsenow-ecc.key \
 cat iot-registration.csr
 ```
 
-记录下cat matter-registration.csr输出的结果，并替换IssueDeviceAttestationCertificate类中代码第94行的strCSR参数的值，替换后如下
+记录下cat matter-registration.csr输出的结果，并替换IssueDeviceAttestationCertificate类中代码第94行的strCSR参数的值；
 
 替换代码76行region参数，endpointRegion
 替换代码91行PAI的ARN，PAI ARN在生成时会打印，也可以在ACM PCA控制台查询；
