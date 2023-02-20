@@ -88,17 +88,12 @@ public class IssueDeviceAttestationCertificate {
         IssueCertificateRequest req = new IssueCertificateRequest();
 
         // Set the CA ARN.
-        req.withCertificateAuthorityArn("arn:aws:acm-pca:us-east-2:970290532830:certificate-authority/259d8f46-9801-4023-a83d-54f2bc553842");
+        req.withCertificateAuthorityArn("替换自己的PAI ARN");
 
         // Specify the certificate signing request (CSR) for the certificate to be signed and issued.
         String strCSR =
                 "-----BEGIN CERTIFICATE REQUEST-----\n" +
-                        "MIIBBjCBrQIBADBLMUkwRwYDVQQDDEAyNGRhYjUxMGZiYWYwMDFkZjcyN2JlN2U1\n" +
-                        "NTkyMWVkOGNiNTlkZjg3Zjk3ZWZkNDdiOGZlYjdmM2E1NGY5MjdiMFkwEwYHKoZI\n" +
-                        "zj0CAQYIKoZIzj0DAQcDQgAE2K4JuKm7QaXwnS05yPLRdRdn8gcsTnsSe2Zvd9fm\n" +
-                        "bxIhfVQplUZKSV7fScKWM2hgu3aj0GVtW8vDRpewos60jqAAMAoGCCqGSM49BAMC\n" +
-                        "A0gAMEUCIFgPQyUM0XAh+MqSqhGXBSlLAeApiaBicj2C1YZhhiE6AiEAzh5Jlo6l\n" +
-                        "nHcLK9xJ6fWFDlMYXsm1117tHxmcoDgu9xo=\n" +
+                        "替换自己的csr内容\n" +
                         "-----END CERTIFICATE REQUEST-----";
         ByteBuffer csrByteBuffer = stringToByteBuffer(strCSR);
         req.setCsr(csrByteBuffer);
