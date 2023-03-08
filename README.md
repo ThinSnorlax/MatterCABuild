@@ -65,3 +65,6 @@ aws acm-pca get-certificate \
 --certificate-arn [替换为您自己的证书 ARN]
 ```
 
+###依赖问题
+
+pom文件中添加了aws-java-sdk-core和aws-java-sdk-acmpca的依赖，但是本地ide中如果遇到maven拉取的依赖出现问题，可以使用libs目录中本地jar包为对应依赖解决；
