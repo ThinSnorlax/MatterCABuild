@@ -71,14 +71,11 @@ if __name__ == '__main__':
     if result_of_connection == 0:
         #print('connect success')
         print(result_of_connection)
-    mqtt_client.subscribe(mqtt_topic)
     mqtt_client.loop_start()
     # while True:
-    #     date_time = int(time.time())
-    #     send_data = send_data_temp
-    #     send_data['timestamp'] = date_time
-    #     res = mqtt_client.publish(mqtt_topic, payload=json.dumps(send_data), qos=1)
-    #     print('已发送消息:', json.dumps(send_data))
-    #     time.sleep(2)
+    date_time = int(time.time())
+    send_data = send_data_temp
+    send_data['timestamp'] = date_time
+    res = mqtt_client.publish(mqtt_topic, payload=json.dumps(send_data), qos=1)
 
 
